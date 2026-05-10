@@ -1,0 +1,64 @@
+@use "sass:math";
+@use "@/assets/scss/settings" as settings;
+@mixin adaptiveValue(
+  $property,
+  $startSize,
+  $minSize: settings.$minSize,
+  $keepSize: 0,
+  $widthFrom: settings.$containerWidth,
+  $widthTo: settings.$minWidth
+) {
+  @if ($startSize==0) {
+    $startSize: 0.000001;
+  }
+  @if ($minSize==0) {
+    $minSize: 0.000001;
+  }
+  @if (
+    $widthFrom == settings.$containerWidth and settings.$maxWidthContainer == 0
+  ) {
+    $widthFrom: settings.$maxWidth;
+  }
+
+  // Брейк-поїнти в EM
+  $widthFromMedia: toEm($widthFrom);
+  $widthToMedia: toEm($widthTo);
+
+  // Формула плаваючого значення
+  // Источник: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+  $slope: math.div(($startSize - $minSize), ($widthFrom - $widthTo));
+  $yIntersection: -$widthTo * $slope + $minSize;
+  @if ($yIntersection==0) {
+    $yIntersection: 0.000001;
+  }
+  $flyValue: #{$yIntersection}px " + " #{$slope * 100}vw;
+
+  // Отримання значення властивості
+  $propertyValue: #{"clamp(" #{$minSize}px "," $flyValue "," #{$startSize}px
+    ")"};
+  // Якщо негативні значення
+  @if ($minSize > $startSize) {
+    $propertyValue: #{"clamp("
+      #{$startSize}px
+      ","
+      $flyValue
+      ","
+      #{$minSize}px
+      ")"};
+  }
+  // Встановлюємо значення за замовчуванням
+  @if $keepSize != 1 and $keepSize != 3 {
+    @media (width > $widthFromMedia) {
+      #{$property}: #{$startSize}px;
+    }
+  }
+  // Адаптуємо розмір у проміжку між зазначеними ширинами в'юпорту
+  @media (width > $widthToMedia) and (width <= $widthFromMedia) {
+    #{$property}: $propertyValue;
+  }
+  @if $keepSize != 1 and $keepSize != 2 {
+    @media (width <= $widthToMedia) {
+      #{$property}: #{$minSize}px;
+    }
+  }
+}

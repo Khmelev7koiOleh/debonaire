@@ -1,0 +1,147 @@
+// 📄 style.scss
+// @use "sass:math";
+@use "@/assets/scss/base/mixins" as *;
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Italiana:regular);
+@import url(https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Lexend+Deca:100,200,300,regular,500,600,700,800,900);
+// by default
+$fontFamily: "DM Sans", sans-serif;
+
+$fontSize: toRem(16);
+
+// main colors
+$mainColor: #6e645f;
+$colorRed: #f95454;
+// $goldColor: #9d875c;
+// $goldColorHover: #c1ab81;
+// $bgGold: #c1ab81;
+$bgPink: #dfccc2;
+
+//  min width
+$minWidth: 320;
+// max width
+$maxWidth: 1440;
+
+// max width container
+$maxWidthContainer: 0;
+
+//container padding
+$containerPadding: 100;
+
+// breakpoint-width
+$containerWidth: $maxWidthContainer + $containerPadding;
+//breakpoints
+
+$pc: em($containerWidth);
+$tablet: em(991.98);
+$mobile: em(767.98);
+$mobileSmall: em(479.98);
+
+// adaptative-type
+// 1 - no breakpoint (responsive)
+// 2 - by breakpoint
+$responsiveType: 1;
+
+// reset
+
+// @import "base/null";
+
+body {
+  // scroll blocked
+  background-color: $bgPink;
+  .lock & {
+    overflow: hidden;
+    touch-action: none;
+    overscroll-behavior: none;
+  }
+  //   loading site
+  .loaded & {
+  }
+}
+
+.wrapper {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  @supports (overflow: clip) {
+    overflow: clip;
+  }
+  > main {
+    flex: 1 1 auto;
+  }
+  > * {
+    min-width: 0;
+  }
+}
+
+// restrictive container
+
+// @if ($responsiveType==1) {
+//   [class*="__container"] {
+//     @if ($maxWidthContainer > 0) {
+//       max-width: toRem($containerWidth);
+//       margin: 0 auto;
+//     }
+
+//     @if ($containerPadding > 0) {
+//       @if ($maxWidthContainer > 0) {
+//         padding: 0 toRem(math.div($containerPadding, 2));
+//       } @else {
+//         @include adaptiveValue(
+//           "padding-left",
+//           math.div($containerPadding, 2),
+//           15
+//         );
+//         @include adaptiveValue(
+//           "padding-right",
+//           math.div($containerPadding, 2),
+//           15
+//         );
+//       }
+//     }
+//   }
+// } @else {
+//   [class*="__container"] {
+//     // max-width: toRem($containerWidth);
+//     margin: 0 auto;
+//     @if ($containerPadding > 0) {
+//       max-width: toRem($containerWidth);
+//       //   padding: 0 toRem(math.div($containerPadding, 2));
+//     } @else {
+//       @if ($containerPadding > 0) {
+//         padding: 0 toRem(math.div($containerPadding, 2));
+//       }
+//     }
+//     @media (max-width: $pc) {
+//       max-width: toRem(970);
+//     }
+//     @media (max-width: $tablet) {
+//       max-width: toRem(750);
+//     }
+//     @media (max-width: $mobile) {
+//       max-width: none;
+//       @if ($containerPadding > 0 and $ma xWidthContainer > 0) {
+//         padding: 0 toRem(math.div($containerPadding, 2));
+//       }
+//     }
+//   }
+// }
+
+// turn on/off certain styles
+
+@import "base/mixins";
+
+// common styles
+
+// @import "common";
+
+// turn on/off certain blocks
+
+// @import "&";
+// @import "footer";
+
+// turn on/off certain pages
+
+// @import "home";
