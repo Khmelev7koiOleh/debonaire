@@ -1,4 +1,10 @@
 @use "@/assets/scss/hero" as *;
 @use "@/assets/scss/common" as *;
 @use "@/assets/scss/header" as *;
-@use "@/assets/scss/settings" as *;
+@use "@/assets/scss/style" as *;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Takes full screen height */
+  margin: 0;
+}
