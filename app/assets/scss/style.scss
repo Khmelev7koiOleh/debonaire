@@ -1,5 +1,5 @@
 // 📄 style.scss
-// @use "sass:math";
+@use "sass:math";
 @use "@/assets/scss/base/mixins" as *;
 @import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 @import url(https://fonts.googleapis.com/css?family=Italiana:regular);
@@ -33,10 +33,10 @@ $containerPadding: 100;
 $containerWidth: $maxWidthContainer + $containerPadding;
 //breakpoints
 
-$pc: em($containerWidth);
-$tablet: em(991.98);
-$mobile: em(767.98);
-$mobileSmall: em(479.98);
+$pc: $containerWidth;
+$tablet: 991.98px;
+$mobile: 767.98px;
+$mobileSmall: 380px;
 
 // adaptative-type
 // 1 - no breakpoint (responsive)
@@ -48,7 +48,12 @@ $responsiveType: 1;
 // @import "base/null";
 
 body {
-  // scroll blocked
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Takes full screen height */
+  margin: 0;
+  transition: all 0.3s ease;
+
   background-color: $bgPink;
   .lock & {
     overflow: hidden;
@@ -61,7 +66,7 @@ body {
 }
 
 .wrapper {
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -69,6 +74,11 @@ body {
     overflow: clip;
   }
   > main {
+    padding-top: 70px;
+    @media (min-width: $mobile) {
+      padding-top: 100px;
+    }
+
     flex: 1 1 auto;
   }
   > * {
