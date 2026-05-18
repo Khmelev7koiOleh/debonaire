@@ -22,16 +22,6 @@
   &__title {
     z-index: 3;
 
-    p {
-      font-family: "Lexend Deca", sans-serif;
-      font-size: clamp(24px, 5vw, 36px);
-      font-style: normal;
-      font-weight: 400;
-      line-height: 133.333333%; /* 48px/36 */
-      color: #ffffff;
-
-      letter-spacing: -1.5px;
-    }
     @media (min-width: $mobile) {
       padding-left: 20px;
       padding-top: 10.893246%; /* 50px/459 */
@@ -53,6 +43,8 @@
   }
   &__media {
     position: relative;
+
+    transition: transform 0.02s linear;
     // margin-left: -115px;
     // aspect-ratio: 1 / 1;
 
@@ -147,10 +139,6 @@
     position: relative;
     max-width: 200px;
 
-    font-family: "DM Sans", sans-serif;
-    line-height: 1.5;
-    font-size: 16px;
-    color: #6e645f;
     z-index: 3;
     @media (min-width: $mobile) {
       align-self: start;

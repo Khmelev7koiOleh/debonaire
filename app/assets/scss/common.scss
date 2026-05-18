@@ -33,3 +33,21 @@
     }
   }
 }
+.title {
+  font-family: "Lexend Deca", sans-serif;
+  font-size: clamp(24px, 5vw, 36px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 133.333333%; /* 48px/36 */
+  color: #ffffff;
+
+  letter-spacing: -1.5px;
+}
+.text {
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 27px/18 */
+  color: #6e645f;
+}
