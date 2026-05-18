@@ -2,6 +2,7 @@
 @use "@/assets/scss/common" as *;
 @use "@/assets/scss/header" as *;
 @use "@/assets/scss/style" as *;
+@use "@/assets/scss/focused" as *;
 body {
   display: flex;
   flex-direction: column;

@@ -1,0 +1,107 @@
+@use "@/assets/scss/style" as *;
+.focused {
+  position: relative;
+  &__container {
+    padding-top: clamp(20px, 8vw, 65px);
+    padding-bottom: clamp(40px, 12vw, 143px);
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  &__content {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+    // align-self: start;
+
+    column-gap: clamp(10px, 2vw, 25px);
+    @media (min-width: $mobile) {
+      flex-direction: row;
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    max-width: 1250px;
+    margin: 0 auto;
+  }
+  &__picture {
+    position: relative;
+
+    z-index: 2;
+    &--first {
+      max-width: 312px;
+      position: relative;
+      z-index: 2;
+
+      aspect-ratio: 312/385;
+      img {
+        overflow: hidden;
+        border-radius: 3%;
+      }
+    }
+    &--second {
+      max-width: 365px;
+      position: relative;
+      z-index: 2;
+      transform: translateY(32%);
+      aspect-ratio: 365/530;
+      align-self: flex-end;
+
+      img {
+        overflow: hidden;
+        border-radius: 3%;
+      }
+    }
+  }
+  &__img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+  }
+  &__deco {
+    position: absolute;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &--first {
+      position: absolute;
+      width: 110.897436%; /* 346/312 */
+      bottom: -37%;
+      left: -55%;
+      aspect-ratio: 346/342;
+      z-index: 1;
+    }
+    &--second {
+      position: absolute;
+      width: 134.794521%; /* 492/365 */
+
+      bottom: -15%;
+      left: -89%;
+      aspect-ratio: 492/369;
+      z-index: 1;
+    }
+  }
+  &__body {
+    padding-top: 120px;
+    width: 400px;
+    height: 100%;
+    z-index: 3;
+    // align-self: center;
+  }
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__text {
+    p {
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
