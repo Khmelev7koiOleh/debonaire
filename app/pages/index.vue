@@ -13,19 +13,23 @@ const focused = ref<HTMLElement | null>(null);
 const focused__img1 = ref<HTMLElement | null>(null);
 const focused__text = ref<HTMLElement | null>(null);
 const focused__img2 = ref<HTMLElement | null>(null);
-const section2 = ref<HTMLElement | null>(null);
-const bg2 = ref<HTMLElement | null>(null);
+const showcase = ref<HTMLElement | null>(null);
+const showcase__img1 = ref<HTMLElement | null>(null);
+const showcase__img2 = ref<HTMLElement | null>(null);
+const showcase__img3 = ref<HTMLElement | null>(null);
 const section3 = ref<HTMLElement | null>(null);
 const bg3 = ref<HTMLElement | null>(null);
 const section4 = ref<HTMLElement | null>(null);
 const bg4 = ref<HTMLElement | null>(null);
 const section5 = ref<HTMLElement | null>(null);
 const bg5 = ref<HTMLElement | null>(null);
-useParallax(hero, main, -0.1);
-useParallax(focused, focused__img1, -1);
+useParallax(hero, main, -0.5);
+useParallax(focused, focused__img1, -0.5);
 useParallax(focused, focused__text, -0.1);
-useParallax(focused, focused__img2, -1);
-useParallax(section2, bg2, -0.5);
+useParallax(focused, focused__img2, -0.5);
+useParallax(showcase, showcase__img1, -0.8);
+useParallax(showcase, showcase__img2, -1.0);
+useParallax(showcase, showcase__img3, -1.0);
 useParallax(section3, bg3, -0.5);
 useParallax(section4, bg4, -0.5);
 useParallax(section5, bg5, -0.5);
@@ -168,7 +172,61 @@ onMounted(() => {
         </div>
       </div>
     </section>
-    <section class="hero">
+
+    <section class="showcase">
+      <div class="showcase__content">
+        <div ref="showcase" class="showcase__picture">
+          <img
+            ref="showcase__img1"
+            class="showcase__img"
+            src="/showcase/image-1.jpg"
+            alt=""
+          />
+          <div class="showcase__deco showcase__decore-img">
+            <img src="/showcase/deco-1.svg" alt="" />
+          </div>
+        </div>
+
+        <div class="showcase__body">
+          <h2 class="showcase__title title--big">
+            We love what we do. We are up to the task.
+          </h2>
+          <p class="showcase__text text">
+            Cuts tailor made for your hair, making it easy for you to recreate
+            your look every day. Debonaire team, makes you feel happy at ease
+            and work with you to make you your most lovely.
+          </p>
+        </div>
+        <div class="showcase__decore decore-showcase">
+          <div class="decore-showcase__body">
+            <div class="decore-showcase__line-item">
+              <img
+                src="/showcase/deco-2.svg"
+                alt=""
+                class="decore-showcase__line"
+              />
+            </div>
+            <div class="decore-showcase__item-hair">
+              <img
+                ref="showcase__img2"
+                src="/showcase/image-2.jpg"
+                alt=""
+                class="decore-showcase__hair"
+              />
+            </div>
+            <div class="decore-showcase__item-dryer">
+              <img
+                ref="showcase__img3"
+                src="/showcase/image-3.jpg"
+                alt=""
+                class="decore-showcase__dryer"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <section class="hero">
       <div class="hero__container">
         <div class="hero__body">
           <div
@@ -391,7 +449,7 @@ onMounted(() => {
           <div class="hero__deco"></div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <div class="text">index page</div>
     <div class="text">index page</div>

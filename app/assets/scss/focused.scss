@@ -4,8 +4,7 @@
   &__container {
     padding-top: clamp(20px, 8vw, 65px);
     padding-bottom: clamp(40px, 12vw, 143px);
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-inline: 10px;
   }
   &__content {
     position: relative;
@@ -37,7 +36,7 @@
       aspect-ratio: 312/385;
       img {
         overflow: hidden;
-        border-radius: 3%;
+        border-radius: 3px;
       }
     }
     &--second {
@@ -50,7 +49,7 @@
 
       img {
         overflow: hidden;
-        border-radius: 3%;
+        border-radius: 3px;
       }
     }
   }
@@ -86,10 +85,12 @@
   }
   &__body {
     padding-top: 120px;
-    width: 400px;
     height: 100%;
     z-index: 3;
     // align-self: center;
+    @media (min-width: $mobile) {
+      width: 400px;
+    }
   }
   &__title {
     &:not(:last-child) {
