@@ -2,8 +2,11 @@
 .hero {
   padding-top: clamp(20px, 8vw, 65px);
   padding-bottom: clamp(40px, 12vw, 143px);
-  padding-left: 10px;
-  padding-right: 10px;
+
+  @media (max-width: $tablet) {
+    padding-inline: 10px;
+  }
+
   &__container {
   }
   &__body {
