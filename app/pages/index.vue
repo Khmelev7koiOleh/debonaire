@@ -17,6 +17,10 @@ const showcase = ref<HTMLElement | null>(null);
 const showcase__img1 = ref<HTMLElement | null>(null);
 const showcase__img2 = ref<HTMLElement | null>(null);
 const showcase__img3 = ref<HTMLElement | null>(null);
+const services = ref<HTMLElement | null>(null);
+const services__img1 = ref<HTMLElement | null>(null);
+const services__img2 = ref<HTMLElement | null>(null);
+const services__img3 = ref<HTMLElement | null>(null);
 const section3 = ref<HTMLElement | null>(null);
 const bg3 = ref<HTMLElement | null>(null);
 const section4 = ref<HTMLElement | null>(null);
@@ -30,9 +34,9 @@ useParallax(focused, focused__img2, -0.5);
 useParallax(showcase, showcase__img1, -0.8);
 useParallax(showcase, showcase__img2, -1.0);
 useParallax(showcase, showcase__img3, -1.0);
-useParallax(section3, bg3, -0.5);
-useParallax(section4, bg4, -0.5);
-useParallax(section5, bg5, -0.5);
+useParallax(services, services__img1, -1.0);
+useParallax(services, services__img2, -1.0);
+useParallax(services, services__img3, -1.0);
 
 // const paralaxStyle = computed(() => {
 //   return {
@@ -226,6 +230,66 @@ onMounted(() => {
         </div>
       </div>
     </section>
+    <section class="services">
+      <div class="services__container">
+        <h1 class="services__title title title--med">Our Services</h1>
+
+        <div class="services__body">
+          <div ref="services" class="services__items">
+            <a ref="services__img1" class="services__item item-service">
+              <div class="item-service__link">
+                <div class="item-service__img">
+                  <img src="/services/image-1.jpg" alt="" />
+                </div>
+
+                <div class="item-service__text title title--sm">Cut</div>
+              </div>
+            </a>
+
+            <a class="services__item item-service">
+              <div ref="services__img2" class="item-service__link">
+                <div class="item-service__text title title--sm">Color</div>
+                <div class="item-service__img">
+                  <img src="/services/image-2.jpg" alt="" />
+                </div>
+              </div>
+              <div class="services__deco-1">
+                <img
+                  class="services__deco-img"
+                  src="/services/deco-2.svg"
+                  alt=""
+                />
+              </div>
+            </a>
+            <a class="services__item item-service">
+              <div ref="services__img3" class="item-service__link">
+                <div class="item-service__img">
+                  <img src="/services/image-3.jpg" alt="" />
+                </div>
+
+                <div class="item-service__text title title--sm">Design</div>
+              </div>
+              <div class="services__deco-2">
+                <img
+                  class="services__deco-img"
+                  src="/services/deco-1.svg"
+                  alt=""
+                />
+              </div>
+            </a>
+          </div>
+          <div class="services__content content-services">
+            <h2 class="content-services__subtitle title title--med">
+              We create a customized new look for you.
+            </h2>
+            <a class="content-services__book book">
+              <span>See our menu</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- <section class="hero">
       <div class="hero__container">
         <div class="hero__body">
