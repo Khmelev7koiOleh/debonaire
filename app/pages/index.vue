@@ -178,8 +178,8 @@ onMounted(() => {
     </section>
 
     <section class="showcase">
-      <div class="showcase__content">
-        <div ref="showcase" class="showcase__picture">
+      <div ref="showcase" class="showcase__content">
+        <div class="showcase__picture">
           <div ref="showcase__img1" class="showcase__image">
             <img class="showcase__img" src="/showcase/image-1.jpg" alt="" />
           </div>
@@ -207,19 +207,23 @@ onMounted(() => {
                 class="decore-showcase__line"
               />
             </div>
-            <div ref="showcase__img2" class="decore-showcase__item-hair">
-              <img
-                src="/showcase/image-2.jpg"
-                alt=""
-                class="decore-showcase__hair"
-              />
+            <div class="decore-showcase__item-hair">
+              <div ref="showcase__img2" class="decore-showcase__hair-image">
+                <img
+                  src="/showcase/image-2.jpg"
+                  alt=""
+                  class="decore-showcase__hair"
+                />
+              </div>
             </div>
-            <div ref="showcase__img3" class="decore-showcase__item-dryer">
-              <img
-                src="/showcase/image-3.jpg"
-                alt=""
-                class="decore-showcase__dryer"
-              />
+            <div class="decore-showcase__item-dryer">
+              <div ref="showcase__img3" class="decore-showcase__dryer-image">
+                <img
+                  src="/showcase/image-3.jpg"
+                  alt=""
+                  class="decore-showcase__dryer"
+                />
+              </div>
             </div>
           </div>
         </div>
