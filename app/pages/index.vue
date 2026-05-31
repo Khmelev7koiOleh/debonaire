@@ -27,6 +27,11 @@ const passion = ref<HTMLElement | null>(null);
 const passion__img = ref<HTMLElement | null>(null);
 const passion__text = ref<HTMLElement | null>(null);
 const passion__vertical_text = ref<HTMLElement | null>(null);
+const best = ref<HTMLElement | null>(null);
+const best__img1 = ref<HTMLElement | null>(null);
+const best__img2 = ref<HTMLElement | null>(null);
+const best__img3 = ref<HTMLElement | null>(null);
+const best__text = ref<HTMLElement | null>(null);
 const section3 = ref<HTMLElement | null>(null);
 const bg3 = ref<HTMLElement | null>(null);
 const section4 = ref<HTMLElement | null>(null);
@@ -48,6 +53,11 @@ useParallax(services, services__img3, -0.8);
 useParallax(passion, passion__vertical_text, -0.8);
 useParallax(passion, passion__img, 0.4);
 useParallax(passion, passion__text, -0.4);
+
+useParallax(best, best__img1, -0.8);
+useParallax(best, best__img2, -0.8);
+useParallax(best, best__img3, -0.8);
+useParallax(best, best__text, -0.8);
 
 // const paralaxStyle = computed(() => {
 //   return {
@@ -327,11 +337,38 @@ onUnmounted(() => {
       </div>
     </section>
 
-    <section class="best">
+    <section ref="best" class="best">
       <div class="best__container">
-        <div class="best__content">
-          <div class="best__main-image">
-            <img src="/best/image-2.jpg" alt="" />
+        <div class="best__body">
+          <div class="best__media media-best">
+            <div class="media-best__deco-1">
+              <img src="/best/deco-1.svg" alt="" />
+            </div>
+            <div class="media-best__image-1">
+              <div ref="best__img1">
+                <img src="/best/image-1.jpg" alt="" />
+              </div>
+            </div>
+            <div ref="best__img2" class="media-best__image-2">
+              <img src="/best/image-2.jpg" alt="" />
+            </div>
+            <div class="media-best__image-3">
+              <div ref="best__img3">
+                <img src="/best/image-3.jpg" alt="" />
+              </div>
+            </div>
+            <div class="media-best__deco-2">
+              <img src="/best/deco-2.svg" alt="" />
+            </div>
+          </div>
+
+          <!-- :class="{ 'best__title--loaded': loaded }" -->
+          <div ref="best__text" class="content__body">
+            <div class="content__title title title--med">
+              <p>Let’s make you your best self.</p>
+            </div>
+
+            <a class="content__book book"><span>Book an appointment</span></a>
           </div>
         </div>
       </div>

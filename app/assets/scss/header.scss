@@ -8,7 +8,7 @@
   width: 100%;
   z-index: 1000;
   &--active {
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(3px);
   }
   &__container {
     display: grid;
