@@ -1,2 +1,101 @@
-footer {
+@use "@/assets/scss/style" as *;
+.footer {
+  padding-top: clamp(40px, 8vw, 120px);
+  padding-bottom: clamp(40px, 8vw, 120px);
+  width: 100vw;
+
+  &__container {
+    // margin: 85px;
+    display: grid;
+
+    @media (min-width: $mobile) {
+      grid-template-columns: 3fr 7fr;
+    }
+
+    padding-inline: clamp(10px, 6vw, 85px);
+  }
+  &__important {
+  }
+}
+
+.menu-footer {
+  @media (max-width: $mobile) {
+    order: 2;
+  }
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  @media (min-width: $mobile) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  column-gap: 10px;
+  row-gap: 10px;
+
+  &__link {
+    font-family: "DM Sans" sans-serif;
+    line-height: 50%;
+    letter-spacing: 0.4px;
+    font-weight: medium;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+
+    a {
+      color: inherit; /* Übernimmt die Textfarbe des Elternelements */
+      cursor: pointer;
+      color: #fff;
+    }
+  }
+}
+
+.important {
+  @media (max-width: $mobile) {
+    order: 1;
+
+    margin-bottom: 40px;
+  }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  //   justify-content: end;
+
+  align-items: end;
+  //   text-align: end;
+  &__container {
+    width: 100%;
+    @media (min-width: $mobile) {
+      max-width: 420px;
+    }
+
+    text-align: end;
+  }
+  &__title {
+    font-size: 30px;
+    letter-spacing: -1.13px;
+    font-style: normal;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  &__link {
+    text-decoration: none;
+    color: #f95454;
+    letter-spacing: -1.13px;
+    font-style: normal;
+    position: relative;
+    padding-bottom: 10px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $colorRed;
+    }
+  }
 }
