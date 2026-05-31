@@ -1,0 +1,127 @@
+@use "@/assets/scss/style" as *;
+
+.passion {
+  // padding-top: clamp(50px, 8vw, 150px);
+  // padding-bottom: clamp(50px, 8vw, 106px);
+  height: 100vh;
+  width: 100vw;
+
+  //   &__container {
+  //     position: relative;
+  //     width: 100%;
+  //     height: 100%;
+  //   }
+
+  background-image: url(/passion/image-bg.jpg);
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; /* Fills screen without distortion */
+  z-index: 2;
+  object-fit: cover;
+
+  position: relative;
+  &__body {
+    position: relative;
+
+    z-index: 2;
+    // @media (min-width: $mobile) {
+    //   min-height: 720px;
+    //   min-width: 1440px;
+    // }
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &__vertical-text {
+    position: relative;
+    position: absolute;
+    top: 0;
+
+    @media (min-width: $mobile) {
+      right: clamp(20px, 6vw, 107px);
+      transform: translate(0%, -62%);
+    }
+
+    z-index: 4;
+
+    @media (max-width: $mobile) {
+      left: 20px;
+      transform: translate(0%, -33%);
+    }
+
+    p {
+      font-family: "DM Sans", sans-serif;
+      color: #ffffff;
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-size: 16px;
+      writing-mode: vertical-lr; /* Flows top-to-bottom, left-to-right */
+      text-orientation: sideways;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 10%;
+    left: 20%;
+
+    width: 100%;
+    height: 100%;
+
+    aspect-ratio: 2400 / 1600;
+
+    img {
+      transform: translate(-20%, 0%);
+      object-fit: cover;
+      width: 120%;
+      height: 120%;
+    }
+  }
+}
+
+.content-passion {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  justify-items: center;
+
+  // padding-top: 50px;
+  padding-bottom: clamp(50px, 8vw, 106px);
+
+  &__body {
+    position: relative;
+    z-index: 3;
+
+    margin: 0 auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  &__title {
+    margin-top: 0;
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+    letter-spacing: -2.25px;
+    line-height: 110%; /* 66/60 */
+  }
+
+  &__text {
+    color: #ffffff;
+    font-family: "DM Sans", sans-serif;
+    letter-spacing: -0.4px;
+    @media (min-width: $mobile) {
+      max-width: 395px;
+
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+}

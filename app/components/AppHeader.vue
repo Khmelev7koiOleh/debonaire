@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ref, watch, onMounted, onUnmounted } from "vue";
+import { useScrollStore } from "../stores/scroll-store";
 
+const scrollStore = useScrollStore();
 const isOpen = ref(false);
+
 const toggleMenu = () => {
   isOpen.value = !isOpen.value;
 };
@@ -47,7 +50,7 @@ watch(isOpen, (open) => {
 </script>
 
 <template>
-  <header class="header">
+  <header class="header" :class="{ 'header--active': scrollStore.someState }">
     <div class="header__container">
       <button
         class="burger"

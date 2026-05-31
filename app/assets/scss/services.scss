@@ -5,6 +5,9 @@
   padding-inline: 10px;
   padding-top: clamp(50px, 8vw, 150px);
   padding-bottom: clamp(50px, 8vw, 150px);
+  position: relative;
+  z-index: 8;
+  overflow: hidden;
   &__container {
   }
   &__title {

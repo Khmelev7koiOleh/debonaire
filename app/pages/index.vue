@@ -4,9 +4,10 @@ import { ref, onMounted } from "vue";
 const loaded = ref(false);
 const scrollY = ref(0);
 let ticking = false;
-
+const scroll = ref(0);
 import { useParallax } from "~/composables/useParallax";
-
+import { useScrollStore } from "../stores/scroll-store";
+const scrollStore = useScrollStore();
 const hero = ref<HTMLElement | null>(null);
 const main = ref<HTMLElement | null>(null);
 const focused = ref<HTMLElement | null>(null);
@@ -18,25 +19,35 @@ const showcase__img1 = ref<HTMLElement | null>(null);
 const showcase__img2 = ref<HTMLElement | null>(null);
 const showcase__img3 = ref<HTMLElement | null>(null);
 const services = ref<HTMLElement | null>(null);
+const services__title = ref<HTMLElement | null>(null);
 const services__img1 = ref<HTMLElement | null>(null);
 const services__img2 = ref<HTMLElement | null>(null);
 const services__img3 = ref<HTMLElement | null>(null);
+const passion = ref<HTMLElement | null>(null);
+const passion__img = ref<HTMLElement | null>(null);
+const passion__text = ref<HTMLElement | null>(null);
+const passion__vertical_text = ref<HTMLElement | null>(null);
 const section3 = ref<HTMLElement | null>(null);
 const bg3 = ref<HTMLElement | null>(null);
 const section4 = ref<HTMLElement | null>(null);
 const bg4 = ref<HTMLElement | null>(null);
 const section5 = ref<HTMLElement | null>(null);
 const bg5 = ref<HTMLElement | null>(null);
-useParallax(hero, main, -0.5);
-useParallax(focused, focused__img1, -0.5);
-useParallax(focused, focused__text, -0.1);
-useParallax(focused, focused__img2, -0.5);
+useParallax(hero, main, -0.8);
+useParallax(focused, focused__img1, -0.8);
+useParallax(focused, focused__text, -0.8);
+useParallax(focused, focused__img2, -0.8);
 useParallax(showcase, showcase__img1, -0.8);
-useParallax(showcase, showcase__img2, -1.0);
-useParallax(showcase, showcase__img3, -1.0);
-useParallax(services, services__img1, -1.0);
-useParallax(services, services__img2, -1.0);
-useParallax(services, services__img3, -1.0);
+useParallax(showcase, showcase__img2, -0.8);
+useParallax(showcase, showcase__img3, -0.8);
+useParallax(services, services__title, 0.1);
+useParallax(services, services__img1, -0.8);
+useParallax(services, services__img2, -0.8);
+useParallax(services, services__img3, -0.8);
+
+useParallax(passion, passion__vertical_text, -0.8);
+useParallax(passion, passion__img, 0.4);
+useParallax(passion, passion__text, -0.4);
 
 // const paralaxStyle = computed(() => {
 //   return {
@@ -63,6 +74,17 @@ onMounted(() => {
   // window.addEventListener("scroll", handleScroll, { passive: true });
 });
 
+const handleScroll = () => {
+  scrollStore.someState = window.scrollY > 0;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
 // onUnmounted(() => {
 //   window.removeEventListener("scroll", handleScroll);
 // });
@@ -70,15 +92,6 @@ onMounted(() => {
 
 <template>
   <div class="wrapper">
-    <!-- <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br /> -->
-
     <section class="hero">
       <div class="hero__container">
         <div class="hero__body">
@@ -230,11 +243,13 @@ onMounted(() => {
       </div>
     </section>
     <section class="services">
-      <div class="services__container">
-        <h1 class="services__title title title--med">Our Services</h1>
+      <div ref="services" class="services__container">
+        <h1 ref="services__title" class="services__title title title--med">
+          Our Services
+        </h1>
 
         <div class="services__body">
-          <div ref="services" class="services__items">
+          <div class="services__items">
             <a ref="services__img1" class="services__item item-service">
               <div class="item-service__link">
                 <div class="item-service__img">
@@ -288,7 +303,39 @@ onMounted(() => {
         </div>
       </div>
     </section>
+    <section ref="passion" class="passion">
+      <div class="passion__vertical-text">
+        <div ref="passion__vertical_text">
+          <p>AND THE MOST IMPORTANT PART</p>
+        </div>
+      </div>
+      <div class="passion__body">
+        <div ref="passion__text" class="passion__content content-passion">
+          <div class="content-passion__body">
+            <h2 class="content-passion__title title title--big">
+              We work with passion.
+            </h2>
+            <p class="content-passion__text text">
+              Our specialists are waiting to give you the treatments and
+              services that you deserve.
+            </p>
+          </div>
+        </div>
+        <div ref="passion__img" class="passion__bg">
+          <img src="/passion/image-3.png" alt="" />
+        </div>
+      </div>
+    </section>
 
+    <section class="best">
+      <div class="best__container">
+        <div class="best__content">
+          <div class="best__main-image">
+            <img src="/best/image-2.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- <section class="hero">
       <div class="hero__container">
         <div class="hero__body">
@@ -513,68 +560,6 @@ onMounted(() => {
         </div>
       </div>
     </section> -->
-
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
-    <div class="text">index page</div>
   </div>
 </template>
 
