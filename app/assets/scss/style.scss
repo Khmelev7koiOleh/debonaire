@@ -1,6 +1,7 @@
 // 📄 style.scss
 @use "sass:math";
 @use "@/assets/scss/base/mixins" as *;
+@use "base/mixins";
 @import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 @import url(https://fonts.googleapis.com/css?family=Italiana:regular);
 @import url(https://fonts.googleapis.com/css?family=DM+Sans:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
@@ -13,6 +14,7 @@ $fontSize: toRem(16);
 // main colors
 $mainColor: #6e645f;
 $colorRed: #f95454;
+
 // $goldColor: #9d875c;
 // $goldColorHover: #c1ab81;
 // $bgGold: #c1ab81;
@@ -140,8 +142,6 @@ body {
 // }
 
 // turn on/off certain styles
-
-@import "base/mixins";
 
 // common styles
 

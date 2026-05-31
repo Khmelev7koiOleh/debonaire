@@ -22,10 +22,9 @@
     transition:
       0.3s height,
       background-color 0.3s;
+    z-index: -1;
   }
-  span {
-    z-index: 2;
-  }
+
   &:hover {
     &::after {
       background-color: $colorRed;

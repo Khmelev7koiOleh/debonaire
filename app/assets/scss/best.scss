@@ -151,5 +151,9 @@
     }
   }
   &__book {
+    span {
+      position: relative;
+      z-index: 2;
+    }
   }
 }

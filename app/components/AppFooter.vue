@@ -22,7 +22,9 @@
           <div class="important__title title">
             We invite you to join our team.
           </div>
-          <a href="#" class="important__link title"><span>Apply Now</span></a>
+          <a href="#" class="important__link title book"
+            ><span>Apply Now</span></a
+          >
         </div>
       </div>
     </div>
