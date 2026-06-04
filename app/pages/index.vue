@@ -166,12 +166,9 @@ onUnmounted(() => {
       <div class="focused__container">
         <div class="focused__content">
           <div class="focused__picture focused__picture--first">
-            <img
-              ref="focused__img1"
-              class="focused__img"
-              src="/focused/image-1.jpg"
-              alt=""
-            />
+            <div ref="focused__img1">
+              <img class="focused__img" src="/focused/image-1.jpg" alt="" />
+            </div>
             <div class="focused__deco focused__deco--first">
               <img src="/focused/deco-1.svg" alt="" />
             </div>
@@ -186,12 +183,13 @@ onUnmounted(() => {
             </p>
           </div>
           <div class="focused__picture focused__picture--second">
-            <img
-              ref="focused__img2"
-              class="focused__img focused__img--second"
-              src="/focused/image-2.jpg"
-              alt=""
-            />
+            <div ref="focused__img2">
+              <img
+                class="focused__img focused__img--second"
+                src="/focused/image-2.jpg"
+                alt=""
+              />
+            </div>
             <div class="focused__deco focused__deco--second">
               <img src="/focused/deco-2.svg" alt="" />
             </div>
