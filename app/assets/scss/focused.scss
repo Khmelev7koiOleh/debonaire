@@ -39,6 +39,7 @@
         border-radius: 3px;
       }
     }
+
     &--second {
       max-width: 365px;
       position: relative;
@@ -52,6 +53,15 @@
         border-radius: 3px;
       }
     }
+  }
+
+  &__image-1 {
+    position: relative;
+    z-index: 2;
+  }
+  &__image-2 {
+    position: relative;
+    z-index: 2;
   }
   &__img {
     position: relative;
